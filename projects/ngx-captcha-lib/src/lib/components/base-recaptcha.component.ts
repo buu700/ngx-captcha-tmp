@@ -150,7 +150,10 @@ export abstract class BaseReCaptchaComponent implements OnChanges, ControlValueA
     ) { }
 
     ngAfterViewInit() {
-        this.control = this.injector.get<NgControl>(NgControl).control;
+        try {
+            this.control = this.injector.get<NgControl>(NgControl).control;
+        }
+        catch {}
     }
 
     ngAfterViewChecked(): void {
